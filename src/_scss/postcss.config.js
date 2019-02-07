@@ -1,0 +1,7 @@
+module.exports = ({ file, options, env }) => ({
+    parser: file.extname === '.sss' ? 'sugarss' : false,
+    plugins: {
+        'postcss-preset-env': options['postcss-preset-env'] ? options['postcss-preset-env'] : false,
+        'cssnano': env === 'production' ? options.cssnano : false
+    }
+});
